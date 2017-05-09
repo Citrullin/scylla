@@ -1,4 +1,4 @@
-# Scylla
+# Scylla for ARM
 
 ## Building Scylla
 
@@ -11,17 +11,17 @@ git submodule init
 git submodule update --init --recursive
 ```
 
-### Building and Running Scylla on Fedora
+### Building and Running Scylla on Ubuntu
 * Installing required packages:
 
 ```
-sudo dnf install yaml-cpp-devel lz4-devel zlib-devel snappy-devel jsoncpp-devel thrift-devel antlr3-tool antlr3-C++-devel libasan libubsan gcc-c++ gnutls-devel ninja-build ragel libaio-devel cryptopp-devel xfsprogs-devel numactl-devel hwloc-devel libpciaccess-devel libxml2-devel python3-pyparsing lksctp-tools-devel protobuf-devel protobuf-compiler systemd-devel libunwind-devel
+sudo apt-get install libyaml-cpp-dev liblz4-dev libghc-zlib-dev libsnappy-dev libjsoncpp-dev thrift-compiler libantlr3c-dev antlr3 libgcc-4.9-dev g++ libgnutls-dev libaio-dev libcrypto++-dev xfsprogs libnuma-dev libhwloc-dev libpciaccess-dev libxml2-dev libsctp-dev libprotobuf-dev libsystemd-dev libunwind-dev libboost-dev pkg-config ninja-build python-pip python3-pyparsing
 ```
 
 * Build Scylla
 ```
 ./configure.py --mode=release --with=scylla --disable-xen
-ninja-build build/release/scylla -j2 # you can use more cpus if you have tons of RAM
+ninja build/release/scylla -j1 #If you have more RAM you can also use more CPUs. I recommend 8GB for each core.
 
 ```
 
