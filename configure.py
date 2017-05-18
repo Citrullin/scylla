@@ -722,7 +722,7 @@ if args.staticcxx:
 if args.staticboost:
     seastar_flags += ['--static-boost']
 
-seastar_cflags = args.user_cflags + " -march=nehalem"
+seastar_cflags = args.user_cflags + " "
 seastar_flags += ['--compiler', args.cxx, '--cflags=%s' % (seastar_cflags)]
 
 status = subprocess.call([python, './configure.py'] + seastar_flags, cwd = 'seastar')
